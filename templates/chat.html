@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% set title = "Safety Chat" %}
+
+{% block content %}
+<section class="card">
+  <div class="chathead">
+    <div>
+      <h1 class="h1">Safety Chat</h1>
+      <p class="muted">Paste a message and hit Send. The bot will rate phishing risk + show flags.</p>
+    </div>
+    <a class="btn ghost" href="{{ url_for('index') }}">← Back to Paste & Check</a>
+  </div>
+
+  <div id="chatLog" class="chatlog" aria-live="polite">
+    <div class="msg bot">
+      <div class="bubble">
+        <div class="who">Bot</div>
+        <div class="text">Chat is live. Paste a message and hit Send.</div>
+      </div>
+    </div>
+  </div>
+
+  <form id="chatForm" class="chatbar" autocomplete="off">
+    <input id="chatInput" class="chatinput" type="text" placeholder="Type a message..." />
+    <button id="sendBtn" class="btn primary" type="submit">Send</button>
+  </form>
+
+  <div id="chatHint" class="hint muted"></div>
+</section>
+
+<script src="{{ url_for('static', filename='chat.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,282 @@
+:root{
+  --bg:#0b1020;
+  --card:#111833;
+  --card2:#0f1630;
+  --text:#e9ecff;
+  --muted:#b7c0ffcc;
+  --border:#2a3566;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+
+  --high:#ff4d4d;
+  --medium:#ffcc33;
+  --low:#2ee59d;
+
+  --btn:#4c7dff;
+  --btn2:#2b3a78;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 20% 10%, #1a2a7a55, transparent 60%),
+              radial-gradient(900px 500px at 80% 30%, #7a1a5a33, transparent 55%),
+              var(--bg);
+  color:var(--text);
+}
+
+.wrap{
+  max-width: 980px;
+  margin: 24px auto 60px;
+  padding: 0 16px;
+}
+
+.topbar{
+  position: sticky;
+  top:0;
+  z-index: 10;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  padding: 14px 16px;
+  background: rgba(10,15,33,.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.brand{
+  display:flex; align-items:center; gap:12px;
+}
+.logo{
+  width:42px; height:42px;
+  border-radius: 12px;
+  display:grid; place-items:center;
+  background: linear-gradient(135deg, #4c7dff, #9b4cff);
+  box-shadow: var(--shadow);
+  font-size: 20px;
+}
+.brandtitle{ font-weight:800; letter-spacing:.2px; }
+.brandsub{ color:var(--muted); font-size: 12px; margin-top:2px; }
+
+.nav{ display:flex; gap:10px; }
+.navlink{
+  text-decoration:none;
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+}
+.navlink:hover{ background: rgba(255,255,255,.07); }
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+
+.h1{ margin:0 0 6px; font-size: 28px; }
+.h2{ margin:0 0 12px; font-size: 20px; }
+.h3{ margin:0 0 10px; font-size: 16px; color: #dbe0ff; }
+.muted{ color: var(--muted); margin: 0 0 12px; }
+
+.label{ display:block; margin: 10px 0 8px; color:#dbe0ff; font-weight:600; }
+.textarea{
+  width:100%;
+  background: rgba(0,0,0,.25);
+  border: 1px solid rgba(255,255,255,.12);
+  color: var(--text);
+  padding: 12px 12px;
+  border-radius: 12px;
+  outline:none;
+  resize: vertical;
+}
+.textarea:focus{
+  border-color: rgba(76,125,255,.75);
+  box-shadow: 0 0 0 4px rgba(76,125,255,.15);
+}
+
+.row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+
+.btn{
+  border:none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: var(--text);
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+}
+.btn.primary{
+  background: linear-gradient(135deg, var(--btn), #9b4cff);
+}
+.btn.primary:hover{ filter: brightness(1.05); }
+.btn.ghost{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.btn.ghost:hover{ background: rgba(255,255,255,.10); }
+
+.riskline{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(0,0,0,.20);
+  border: 1px solid rgba(255,255,255,.10);
+  margin-bottom: 14px;
+}
+.score{ color:#dbe0ff; }
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 900;
+  letter-spacing:.3px;
+  border: 1px solid rgba(255,255,255,.15);
+}
+.pill.high{ background: rgba(255,77,77,.16); color: #ffd0d0; }
+.pill.medium{ background: rgba(255,204,51,.16); color: #fff1c2; }
+.pill.low{ background: rgba(46,229,157,.16); color: #caffea; }
+
+.grid2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 860px){
+  .grid2{ grid-template-columns: 1fr; }
+}
+
+.panel{
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.list{ list-style:none; padding:0; margin:0; }
+.list li{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  margin-bottom: 8px;
+}
+.pts{ color:#c7d0ff; font-weight:800; }
+
+.bullets{ margin:0; padding-left: 18px; color:#dbe0ff; }
+.bullets li{ margin-bottom: 8px; }
+
+.footer{
+  text-align:center;
+  color: rgba(255,255,255,.45);
+  padding: 18px 10px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+/* Chat UI */
+.chathead{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom: 12px;
+}
+
+.chatlog{
+  height: 380px;
+  overflow:auto;
+  border-radius: 14px;
+  background: rgba(0,0,0,.22);
+  border: 1px solid rgba(255,255,255,.10);
+  padding: 12px;
+}
+
+.msg{
+  display:flex;
+  margin-bottom: 10px;
+}
+.msg.user{ justify-content:flex-end; }
+.msg.bot{ justify-content:flex-start; }
+
+.bubble{
+  max-width: 82%;
+  border-radius: 14px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+}
+.msg.user .bubble{
+  background: rgba(76,125,255,.18);
+  border-color: rgba(76,125,255,.25);
+}
+.msg.bot.high .bubble{
+  background: rgba(255,77,77,.15);
+  border-color: rgba(255,77,77,.25);
+}
+.msg.bot.medium .bubble{
+  background: rgba(255,204,51,.13);
+  border-color: rgba(255,204,51,.25);
+}
+.msg.bot.low .bubble{
+  background: rgba(46,229,157,.13);
+  border-color: rgba(46,229,157,.25);
+}
+
+.who{
+  font-size: 12px;
+  font-weight: 900;
+  color: rgba(255,255,255,.75);
+  margin-bottom: 4px;
+}
+.text{ color: #eef1ff; line-height: 1.35; }
+
+.chatbar{
+  display:flex;
+  gap:10px;
+  margin-top: 12px;
+}
+.chatinput{
+  flex:1;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.25);
+  color: var(--text);
+  outline:none;
+}
+.chatinput:focus{
+  border-color: rgba(76,125,255,.75);
+  box-shadow: 0 0 0 4px rgba(76,125,255,.15);
+}
+
+.riskbanner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 10px 12px;
+  margin: 10px 0 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+}
+.riskbanner.high{ border-color: rgba(255,77,77,.30); }
+.riskbanner.medium{ border-color: rgba(255,204,51,.30); }
+.riskbanner.low{ border-color: rgba(46,229,157,.30); }
+
+.hint{ margin-top: 10px; }

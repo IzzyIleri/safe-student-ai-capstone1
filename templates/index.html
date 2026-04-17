@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% set title = "Paste & Check" %}
+
+{% block content %}
+<section class="card">
+  <h1 class="h1">Paste & Check</h1>
+  <p class="muted">Paste a suspicious email/text to identify common phishing indicators.</p>
+
+  <form method="POST" action="{{ url_for('phishing_check') }}" class="form">
+    <label class="label" for="message">Suspicious message</label>
+    <textarea id="message" name="message" class="textarea" rows="9" placeholder="Paste message here...">{{ message }}</textarea>
+
+    <div class="row">
+      <button type="submit" class="btn primary">Check Message</button>
+      <a class="btn ghost" href="{{ url_for('index') }}">Clear</a>
+      <a class="btn ghost" href="{{ url_for('chat_page') }}">Go to Safety Chat →</a>
+    </div>
+  </form>
+</section>
+
+{% if result %}
+<section class="card">
+  <h2 class="h2">Result</h2>
+
+  <div class="riskline">
+    <span class="pill {{ result.level|lower }}">
+      {{ result.level }} RISK
+    </span>
+    <span class="score">Score: <b>{{ result.score }}/100</b></span>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3 class="h3">Score Breakdown</h3>
+      <ul class="list">
+        {% for item, pts in result.breakdown %}
+          <li><span>{{ item }}</span> <span class="pts">+{{ pts }}</span></li>
+        {% endfor %}
+        {% if not result.breakdown %}
+          <li><span>No indicators matched.</span> <span class="pts">+0</span></li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h3 class="h3">Detected Red Flags</h3>
+      <ul class="bullets">
+        {% for f in result.flags %}
+          <li>{{ f }}</li>
+        {% endfor %}
+        {% if not result.flags %}
+          <li>No red flags detected.</li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3 class="h3">What You Should Do</h3>
+    <ol class="bullets">
+      <li>Don’t click links or provide personal info.</li>
+      <li>Verify using the official site you type manually.</li>
+      <li>Report it to your school/company IT if applicable.</li>
+    </ol>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

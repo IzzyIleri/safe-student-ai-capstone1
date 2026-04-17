@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ title if title else "Student Digital Safety" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">🛡️</div>
+      <div class="brandtext">
+        <div class="brandtitle">Student Digital Safety</div>
+        <div class="brandsub">Phishing indicator checker + Safety Chat</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a class="navlink" href="{{ url_for('index') }}">Paste & Check</a>
+      <a class="navlink" href="{{ url_for('chat_page') }}">Safety Chat</a>
+    </nav>
+  </div>
+
+  <main class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

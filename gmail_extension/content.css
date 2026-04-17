@@ -1,0 +1,32 @@
+#safe-student-panel {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    width: 260px;
+    background: #111833;
+    color: white;
+    border-radius: 12px;
+    padding: 12px;
+    z-index: 999999;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    font-family: Arial, sans-serif;
+}
+
+#safe-student-panel h3 {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+#risk-level {
+    font-weight: bold;
+    margin-top: 6px;
+}
+
+#risk-score {
+    margin-top: 4px;
+}
+
+#risk-flags {
+    margin-top: 6px;
+    font-size: 12px;
+}
